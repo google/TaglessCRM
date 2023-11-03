@@ -367,7 +367,7 @@ class GoogleAnalyticsHook(output_hook_interface.OutputHookInterface):
     Raises:
       DataOutConnectorSendUnsuccessfulError: If sending a hit to GA has failed.
     """
-    url = self._get_hit_url(send_type.value)
+    url = self._get_hit_url(send_type.value)  # pytype: disable=wrong-arg-types  # use-enum-overlay
 
     if self.dry_run:
       self.log.info('Dry Run Mode: Skipped sending the hit to GA.')

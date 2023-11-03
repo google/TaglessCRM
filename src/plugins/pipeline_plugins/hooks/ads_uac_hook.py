@@ -246,7 +246,7 @@ class AdsUniversalAppCampaignHook(
         self.send_conversions_to_uac, params_list)
     for i, result in enumerate(results):
       if not (isinstance(result, Dict) and result.get('response')):
-        blb.append_failed_event(
+        blb.append_failed_event(  # pytype: disable=wrong-arg-types  # use-enum-overlay
             i + blb.position,
             blb.events[i],
             errors.ErrorNameIDMap.NON_RETRIABLE_ERROR_EVENT_NOT_SENT)

@@ -269,7 +269,7 @@ class CampaignManagerHook(output_hook_interface.OutputHookInterface):
           [errors.ErrorNameIDMap.NON_RETRIABLE_ERROR_EVENT_NOT_SENT
            for i in range(batch_size)])
 
-    return error_indices, reasons
+    return error_indices, reasons  # pytype: disable=bad-return-type  # use-enum-overlay
 
   def _send_batch(self, batch: List[Tuple[int, Dict[str, Any]]]
                  ) -> List[Tuple[int, errors.ErrorNameIDMap]]:
